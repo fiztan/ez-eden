@@ -1,84 +1,71 @@
-# EzYuzu Guide
+# EzEden Guide
 
 ## Requirements
 
-- Latest [7-Zip](https://www.7-zip.org/a/7z2301-x64.msi) installed.
-- Latest [.NET 7 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.5-windows-x64-installer) installed.
-- Latest [Visual C++ X64 Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe) installed.
+- Latest [.NET 8.0 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed.
 
 ## Methodology
 
-- Reads [Yuzu Mainline](https://github.com/yuzu-emu/yuzu-mainline/releases/latest) or [Yuzu Early Access (EA)](https://github.com/pineappleEA/pineapple-src/releases/latest) JSON data
-- Fetches the latest `.7z` or `.zip` archive URL
-- Downloads & extracts it into your Yuzu Root Folder
+- Reads [Eden Nightly](https://git.eden-emu.dev/eden-ci/nightly/releases) Gitea API JSON data
+- Extracts the latest `-amd64-clang-pgo.zip` archive URL from the release body
+- Downloads & extracts it into your Eden Root Folder
 
 ## Usage
 
-1. Browse and locate the your Yuzu Root Folder, this is the folder containing `yuzu.exe`
-2. EzYuzu will automatically detect the version of yuzu.exe
-3. (Optional): Change Update Channel and/or Update Version
-4. Click on `New Install` or `Update Yuzu`
+1. Browse and locate your Eden Root Folder, this is the folder containing `eden.exe`
+2. EzEden will automatically detect the version of `eden.exe`
+3. (Optional): Change Update Version
+4. Click on `New Install` or `Update Eden`
 
-- Downloads the latest copy of yuzu & extracts it into your Yuzu Root Folder.
-- Automatically checks if your standalone copy of Yuzu is up-to-date.
-- `Dependencies` are automatically installed when EzYuzu is ran as Administrator.
-- `Update Channel` and `Update Version` can be overridden by checking the options within `Options` > `Advanced`
-- Launch Yuzu after update. Go to `Options` > `General` > `Update Yuzu` and check `Launch Yuzu after Update`
+- Downloads the latest copy of Eden & extracts it into your Eden Root Folder.
+- Automatically checks if your standalone copy of Eden is up-to-date.
+- Shows changelog for the selected version.
+- Launch Eden after update. Go to `Options` > `General` > `Update Eden` and check `Launch Eden After Update`
 - It shouldn't overwrite configs unless `New Install` is displayed. However, backup beforehand.
 - Temp files are stored within `TempUpdate` and are deleted upon completion.
-- [GUIDE](https://github.com/amakvana/EzYuzu/blob/master/GUIDE.md) for detailed instructions
+- [GUIDE](https://github.com/fiztan/ez-eden/blob/master/GUIDE.md) for detailed instructions
 
 ## Download Options
 
-| Option         | Description                                                                                                                                        |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New Install`  | Installs Yuzu Mainline & Redistributables. Resets configs & sets [optimised GPU defaults](https://github.com/amakvana/EzYuzu/tree/master/configs). |
-| `Update Yuzu`  | Updates Yuzu to the latest version, excluding Redistributables and optimised configs.                                                              |
-| `Dependencies` | Automatically installed when EzYuzu is ran as Administrator.                                                                                       |
+| Option         | Description                                                             |
+| -------------- | ----------------------------------------------------------------------- |
+| `New Install`  | Installs Eden Nightly. Resets configs.                                  |
+| `Update Eden`  | Updates Eden to the latest version.                                     |
 
 ## Graphical User Interface Options
 
 ### Safe Mode
 
-To launch EzYuzu in Safe Mode and reset user preferences:
+To launch EzEden in Safe Mode and reset user preferences:
 
-1. Ensure all instances of EzYuzu are closed.
-2. Hold `Ctrl` down, then launch EzYuzu.
-3. When done correctly, EzYuzu's title bar will display "EzYuzu - Yuzu Portable Updater - Safe Mode"
+1. Ensure all instances of EzEden are closed.
+2. Hold `Ctrl` down, then launch EzEden.
+3. When done correctly, EzEden's title bar will display "EzEden - Eden Portable Updater - Safe Mode"
 
 ### New Install
 
-To install Yuzu Portable for the first time:
+To install Eden Portable for the first time:
 
 1. Create an empty folder on your device and give it a name.
 2. Select your newly created empty folder.
-3. (Optional) Launch Yuzu after update. Go to `Options` > `General` > `Update Yuzu` and check `Launch Yuzu after Update`
+3. (Optional) Launch Eden after update. Go to `Options` > `General` > `Update Eden` and check `Launch Eden After Update`
 4. The button should now change to `New Install`
 5. Click on `New Install`
 6. Done
 
-### Update Yuzu
+### Update Eden
 
-1. Select your Yuzu root folder (the folder containing `yuzu.exe`)
-2. The button should now change to `Update Yuzu`
-3. (Optional) Launch Yuzu after update. Go to `Options` > `General` > `Update Yuzu` and check `Launch Yuzu after Update`
-4. Click on `Update Yuzu`
+1. Select your Eden root folder (the folder containing `eden.exe`)
+2. The button should now change to `Update Eden`
+3. (Optional) Launch Eden after update. Go to `Options` > `General` > `Update Eden` and check `Launch Eden After Update`
+4. Click on `Update Eden`
 5. Done
 
-### Switching Update Channels and Update Versions
+### Checking Eden is up-to-date
 
-1. Select your Yuzu root folder (the folder containing `yuzu.exe`)
-2. Check the options within `Options` > `Advanced`
-3. Select which `Update Channel` and `Update Version` you want to update Yuzu on, via the Dropdown menu.
-4. (Optional) Launch Yuzu after update. Go to `Options` > `General` > `Update Yuzu` and check `Launch Yuzu after Update`
-5. Click on `Update Yuzu`
-6. Done
-
-### Checking Yuzu is up-to-date
-
-1. Select your Yuzu root folder (the folder containing `yuzu.exe`)
-2. EzYuzu will automatically check if the current copy of Yuzu is up-to-date
-3. If Yuzu is up-to-date, the Update button will be disabled and will state `Yuzu is Up-To-Date!`
+1. Select your Eden root folder (the folder containing `eden.exe`)
+2. EzEden will automatically check if the current copy of Eden is up-to-date
+3. If Eden is up-to-date, the Update button will be disabled and will state `Eden is currently Up-To-Date!`
 4. Done
 
 ## Command Line Interface Options
@@ -86,63 +73,36 @@ To install Yuzu Portable for the first time:
 ### Switches
 
 ```
--p, --path              Required. Set the Yuzu Location Directory Path, this is the path where Yuzu.exe resides. Must wrap path in double quotes.
--m, --mainline          Force EzYuzu to use Mainline channel when updating Yuzu
--e, --early-access      Force EzYuzu to use Early-Access channel when updating Yuzu
--v                      Set a specific version number to update/rollback Yuzu to. Useful when needing to rollback Yuzu. Must wrap version number in double quotes.
--l, --launch-yuzu       Launch Yuzu after successful New Install/Update
---enable-hdr            Enables HDR by renaming yuzu.exe to cemu.exe. Can be used alongside all other switches.
+-p, --path              Required. Set the Eden Location Directory Path, this is the path where eden.exe resides. Must wrap path in double quotes.
+-v                      Set a specific version tag to update/rollback Eden to. Must wrap version tag in double quotes.
+-l, --launch-eden       Launch Eden after successful New Install/Update
 
---help                  Displays the EzYuzu help screen
---version               Displays EzYuzu's version information
+--help                  Displays the EzEden help screen
+--version               Displays EzEden's version information
 ```
 
 ### Usage Examples
 
-New Install/Update to latest Yuzu, automatically detecting Update Channel and Version:
+New Install/Update to latest Eden:
 
 ```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu"
+start "" /wait "EzEden.exe" -p "D:\Eden"
 ```
 
-New Install/Update to latest Yuzu, automatically detecting Update Channel/Version and Enable HDR:
+New Install/Update to latest Eden, then launch it:
 
 ```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" --enable-hdr
+start "" /wait "EzEden.exe" -p "D:\Eden" -l
 ```
 
-Update to latest Yuzu, switching Update channel to Mainline:
+Update/rollback to specific version of Eden (e.g. v1789157782.8a22f1845b):
 
 ```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -m
+start "" /wait "EzEden.exe" -p "D:\Eden" -v "v1789157782.8a22f1845b"
 ```
 
-Update to latest Yuzu, switching Update channel to Early-Access:
+Launch Eden after EzEden has completed an update:
 
 ```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -e
-```
-
-Update/rollback to specific version of Mainline Yuzu (e.g. 1437):
-
-```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -m -v "1437"
-```
-
-Update/rollback to specific version of Early-Access Yuzu (e.g. 3600):
-
-```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -e -v "3600"
-```
-
-Launch Yuzu after EzYuzu has completed an update:
-
-```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -l
-```
-
-Update Yuzu, Enable HDR then Launch Yuzu:
-
-```
-start "" /wait "EzYuzu.exe" -p "D:\Yuzu" -l --enable-hdr
+start "" /wait "EzEden.exe" -p "D:\Eden" -l
 ```

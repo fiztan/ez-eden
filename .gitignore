@@ -401,3 +401,7 @@ FodyWeavers.xsd
 docs/
 .github/
 images/
+assets/
+configs/
+.editorconfig
+CHANGELOG.md
