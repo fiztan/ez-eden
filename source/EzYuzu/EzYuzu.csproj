@@ -11,7 +11,6 @@
     <GeneratedAssemblyInfoFile>AssemblyInfo.cs</GeneratedAssemblyInfoFile>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <NoWin32Manifest>true</NoWin32Manifest>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
