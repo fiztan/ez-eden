@@ -1,29 +1,20 @@
-![GitHub Release](https://img.shields.io/github/v/release/amakvana/EzYuzu?style=for-the-badge)
-![GitHub license](https://img.shields.io/github/license/amakvana/EzYuzu?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/amakvana/EzYuzu?style=for-the-badge)
-![GitHub all releases](https://img.shields.io/github/downloads/amakvana/EzYuzu/total?style=for-the-badge)
+# EzEden
 
-# EzYuzu
+A Portable Eden Updater for Standalone versions of Eden Nightly builds.
 
-A Portable Yuzu Updater for Standalone versions of Yuzu Mainline or Early Access (EA).
+Perfect for those who run Eden off an External HDD or through (but not limited to) frontends such as LaunchBox, Steam, EmulationStation and HyperSpin.
 
-Perfect for those who run Yuzu off an External HDD or through (but not limited to) frontends such as LaunchBox, Steam, EmulationStation and HyperSpin.
+## Based on
 
-![EzYuzu v1.6.0.0](images/ezyuzu_1600.png)
-
-#### Did this program help you? Please consider buying me a cup of coffee to support my work 
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/amakvana)
-[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/amakvana/donate)
+This project is a port of [EzYuzu](https://github.com/amakvana/EzYuzu) by [amakvana](https://github.com/amakvana), adapted to work with the [Eden](https://eden-emu.dev/) emulator and its Gitea-based nightly build system. All credit for the original architecture, UI design, and codebase goes to the EzYuzu author.
 
 ## Table of Contents
 
 - [Overview](#overview)
   - [Methodology](#methodology)
   - [Basic Usage](#basic-usage)
-- [Download](#downloads)
-- [Installation - Windows Tutorial](#installation---windows-tutorial)
-- [Installation - YouTube Tutorial](#installation---youtube-tutorial)
+- [Downloads](#downloads)
+- [Installation](#installation)
 - [User Guide](#user-guide)
 - [Acknowledgements](#acknowledgements)
 
@@ -31,63 +22,56 @@ Perfect for those who run Yuzu off an External HDD or through (but not limited t
 
 ### Methodology
 
-- Reads [Yuzu Mainline](https://github.com/yuzu-emu/yuzu-mainline/releases/latest) or [Yuzu Early Access (EA)](https://github.com/pineappleEA/pineapple-src/releases/latest) JSON data
-- Fetches the latest `.7z` or `.zip` archive URL
-- Downloads & extracts it into your Yuzu Root Folder
+- Reads [Eden Nightly](https://git.eden-emu.dev/eden-ci/nightly/releases) Gitea API JSON data
+- Extracts the latest `-amd64-clang-pgo.zip` archive URL from the release body
+- Downloads & extracts it into your Eden Root Folder
 
 ### Basic Usage
 
-1. Browse and locate the your Yuzu Root Folder, this is the folder containing `yuzu.exe`
-2. EzYuzu will automatically detect the version of `yuzu.exe`
-3. (Optional): Change Update Channel and/or Update Version
-4. Click on `New Install` or `Update Yuzu`
+1. Browse and locate your Eden Root Folder, this is the folder containing `eden.exe`
+2. EzEden will automatically detect the version of `eden.exe`
+3. (Optional): Change Update Version
+4. Click on `New Install` or `Update Eden`
 
-- Downloads the latest copy of yuzu & extracts it into your Yuzu Root Folder.
-- Automatically checks if your standalone copy of Yuzu is up-to-date.
-- `Dependencies` are automatically installed when EzYuzu is ran as Administrator.
-- `Update Channel` and `Update Version` can be overridden by checking the options within `Options` > `Advanced`
-- Post-Update options can be found under `Options` > `General` > `Update Yuzu`
-- It shouldn't overwrite configs unless `New Install` is displayed. However, backup beforehand.
-- Safe Mode can be launched via holding `Ctrl` then launching EzYuzu.exe
+- Downloads the latest copy of Eden & extracts it into your Eden Root Folder.
+- Automatically checks if your standalone copy of Eden is up-to-date.
+- Shows changelog for the selected version.
+- Post-Update options can be found under `Options` > `General` > `Update Eden`
+- Safe Mode can be launched via holding `Ctrl` then launching EzEden.exe
 - Temp files are stored within `TempUpdate` and are deleted upon completion.
-- [GUIDE](https://github.com/amakvana/EzYuzu/blob/master/GUIDE.md) for detailed instructions, along with [Command Line options](https://github.com/amakvana/EzYuzu/blob/master/GUIDE.md#command-line-interface-options).
 
 ## Downloads
 
-https://github.com/amakvana/EzYuzu/releases/latest
+https://github.com/fiztan/ez-eden/releases/latest
 
 Requires:
 
-- Latest [7-Zip](https://www.7-zip.org/a/7z2301-x64.msi) installed.
-- Latest [.NET 7 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.5-windows-x64-installer) installed.
-- Latest [Visual C++ X64 Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe) installed.
+- Latest [.NET 8.0 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed.
 
-## Installation - Windows Tutorial
+## Installation
 
-Extract the entire contents of the `EzYuzu.zip` file, including all `.dll` files, into a folder and run `EzYuzu.exe`
+1. Download the latest `EzEden.zip` from [Releases](https://github.com/fiztan/ez-eden/releases/latest)
+2. Extract the entire contents into a folder and run `EzEden.exe`
 
-![EzYuzuSetupAnimated](images/ezyuzu-setup.gif)
+EzEden is 100% portable - it can be run from any location.
 
-EzYuzu is 100% portable - it can be run from any location.
-
-EzYuzu does not require Administrator privileges to update Yuzu.
-
-Running as Administrator will install Visual C++ Redistributables dependencies.
-
-## Installation - YouTube Tutorial
-
-[![Watch the video](images/ezyuzu-youtube.jpg)](https://youtu.be/hZ5qipPfK5k)
+EzEden does not require Administrator privileges to update Eden.
 
 ## User Guide
 
-The User Guide can be found [here](https://github.com/amakvana/EzYuzu/blob/master/GUIDE.md)
+1. Click `...` and browse to the folder containing `eden.exe`
+2. EzEden will detect your installed version and available updates
+3. Select the version you want to install from the dropdown
+4. Click the main button to download and install
 
 ## Acknowledgements
 
 Thanks:
 
-- [Yuzu Team](https://yuzu-emu.org/) - Nintendo Switch Emulator Developers
-- [PineappleEA](https://github.com/pineappleEA/pineapple-src) - Early Access Builds
-- [Stellar](https://github.com/StellarUpdater/Stellar) - Inspiration
+- [amakvana](https://github.com/amakvana) - Author of [EzYuzu](https://github.com/amakvana/EzYuzu), the original project this was ported from
+- [Eden Team](https://eden-emu.dev/) - Nintendo Switch Emulator Developers
 - [Agus Raharjo](https://www.iconfinder.com/agusraharj) - Icons
-- [GeniusBug](https://youtu.be/hZ5qipPfK5k) - YouTube Tutorial Guide
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
